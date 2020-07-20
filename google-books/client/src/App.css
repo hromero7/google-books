@@ -11,4 +11,19 @@
   font-size: 70px;
 }
 
+.form-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
 
+.card-body {
+  text-align: left;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
