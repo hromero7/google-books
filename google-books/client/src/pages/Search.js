@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
-import Card from "../components/Card";
+import CardContainer from "../components/CardContainer";
 import SearchBar from "../components/SearchBar";
 import API from "../utils/API";
 
@@ -18,7 +18,7 @@ const [bookData, setBookData] = useState([]);
 const searchBooks = (searchTerm) => {
 API.getBooks(searchTerm)
 .then(res => {
-    return setBookData(res.data);
+    return setBookData(res.data.items);
     
 })
 .catch(err => {
@@ -40,7 +40,7 @@ console.log(bookData);
         <div>
         <Header/>
         <SearchBar setKeyword={setKeyword} handleClick={handleClick}/>
-        <Card data={bookData}/>
+        <CardContainer books={bookData}/>
         </div>
     )
 }
