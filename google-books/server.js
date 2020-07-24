@@ -4,6 +4,8 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+let Book = require('./models/book.js')
+
 
 mongoose.connect("mongodb://localhost/googlebooks", {
     useNewUrlParser: true,
@@ -13,6 +15,65 @@ mongoose.connect("mongodb://localhost/googlebooks", {
 mongoose.connection.on("connected", () => {
     console.log("mongoose is connected");
 });
+
+
+
+app.get('/api/books', (req, res) => {
+  Book.find({}, function(err, docs){
+    if(err){
+      res.json({
+        error : true, 
+        error_message : err
+      })
+    } else {
+      res.json(docs)
+    }
+  })
+})
+
+// axios.post(url, body, config)
+
+app.post('/api/books', (req, res) => {
+
+  let newBook = new Book()
+  newBook.title = req.body.title 
+  newBook.author = req.body.author
+  newBook.description = req.body.description
+  newBook.image = req.body.image
+  newBook.link = req.body.link
+
+  newBook.save( (err, book) => {
+    if(err){
+      return res.json({
+        error : true, 
+        error_message : err
+      })
+    } else {
+      res.json({
+        success : true, 
+        book
+      })
+    }
+  })
+})
+
+
+app.delete('/api/books/:id', (req, res) => {
+  Book.deleteOne({ id : req.params.id }, function (err) {
+    if (err){
+      res.json({
+        error : true, 
+        error_message : err
+      })
+    } else {
+      res.json({
+        success : true 
+      })
+    }
+  });
+})
+
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
