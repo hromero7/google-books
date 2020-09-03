@@ -16,6 +16,16 @@ const [bookData, setBookData] = useState([]);
 // },[searchTerm]);
 
 const searchBooks = (searchTerm) => {
+if (searchTerm == undefined) {
+    API.getBooks("easter egg")
+    .then(res => {
+        return setBookData(res.data.items);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+} else {
+
 API.getBooks(searchTerm)
 .then(res => {
     return setBookData(res.data.items);
@@ -24,6 +34,7 @@ API.getBooks(searchTerm)
 .catch(err => {
     console.log(err);
 })
+}
 }
 
 const handleClick = (e) => {

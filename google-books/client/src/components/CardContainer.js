@@ -6,8 +6,7 @@ const CardContainer = (props) => {
 
    return (
         
-<div className="card mb-3" style={{width: "85%"}}>
-  <div className="row no-gutters">
+<div className="col-md-12">
       {
           props.books.map((book, i) => {
               return <BookCard
@@ -22,7 +21,6 @@ const CardContainer = (props) => {
           })
       }
     
-  </div>
 </div>
     )
    

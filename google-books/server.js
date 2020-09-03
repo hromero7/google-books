@@ -1,11 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+// const routes = require("./routes/api");
 
-let Book = require('./models/book.js')
 
+// app.use(routes);
+
+app.use(cors());
 
 mongoose.connect("mongodb://localhost/googlebooks", {
     useNewUrlParser: true,
@@ -17,64 +21,6 @@ mongoose.connection.on("connected", () => {
 });
 
 
-
-app.get('/api/books', (req, res) => {
-  Book.find({}, function(err, docs){
-    if(err){
-      res.json({
-        error : true, 
-        error_message : err
-      })
-    } else {
-      res.json(docs)
-    }
-  })
-})
-
-// axios.post(url, body, config)
-
-app.post('/api/books', (req, res) => {
-
-  let newBook = new Book()
-  newBook.title = req.body.title 
-  newBook.author = req.body.author
-  newBook.description = req.body.description
-  newBook.image = req.body.image
-  newBook.link = req.body.link
-
-  newBook.save( (err, book) => {
-    if(err){
-      return res.json({
-        error : true, 
-        error_message : err
-      })
-    } else {
-      res.json({
-        success : true, 
-        book
-      })
-    }
-  })
-})
-
-
-app.delete('/api/books/:id', (req, res) => {
-  Book.deleteOne({ id : req.params.id }, function (err) {
-    if (err){
-      res.json({
-        error : true, 
-        error_message : err
-      })
-    } else {
-      res.json({
-        success : true 
-      })
-    }
-  });
-})
-
-
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -84,6 +30,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+const bookRouter = require("./routes/api");
+
+app.use("/books", bookRouter);
 
 // Send every other request to the React app
 // Define any API routes before this runs
