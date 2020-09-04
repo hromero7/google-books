@@ -7,6 +7,7 @@ const SavedBook = (props) => {
         API.deleteBook(props.id)
             .then(res => {
                 console.log(res)
+                
                 window.location = "/saved";
             })
     }

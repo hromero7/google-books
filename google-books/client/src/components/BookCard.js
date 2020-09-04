@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import API from "../utils/API";
 
 const BookCard = (props) => {
+  const [iconClass, setIconClass] = useState({clicked: false});
+
     const handleSave = () => {
 
         let bookToSave = {
@@ -13,8 +15,12 @@ const BookCard = (props) => {
             link: props.link
         }
         console.log("console log" + props.authors);
+        setIconClass({clicked: true});
         API.saveBook(bookToSave);
+
     }
+   
+
         return (
 <div className="card mb-3" style={{width:"100%"}}>
   <div className="row no-gutters">
@@ -28,7 +34,10 @@ const BookCard = (props) => {
     <p className="card-text"><small className="text-muted">Written By {props.authors == null ? "N/A": props.authors.join(", ")}</small></p>
     <p className="card-text" style={{fontSize:"14px"}}>{props.description}</p>
     <button className="btn btn-dark"><a href={props.link}>View</a></button>
-    <button className="btn btn-dark" onClick={handleSave}>Save</button>
+        <button className="btn btn-dark" onClick={handleSave} disabled={iconClass.clicked? true : false}>
+          {iconClass.clicked? <i className="fas fa-check"></i> : "Save" }
+        
+        </button>
       </div>
     </div> 
     </div>
