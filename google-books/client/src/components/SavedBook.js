@@ -12,9 +12,10 @@ const SavedBook = (props) => {
     }
 
     return (
-    <div>
+    <div className="card mb-3" style={{width: "100%"}}>
+        <div className="row no-gutter">
         <div className="col-md-4">
-             <img src={props.image} className="card-img" alt="thumbnail"/>
+             <img src={props.image} className="card-img" alt={props.title} style={{width: "150px", margin: "20px"}}/>
             </div>
 
             <div className="col-md-8">
@@ -22,12 +23,12 @@ const SavedBook = (props) => {
                     <h5 className="card-title">{props.title}</h5>
                     <h5 className="card-title">{props.subtitle}</h5>
                     <p className="card-text"><small className="text-muted">Written By {props.authors.join(", ")}</small></p>
-                    <p className="card-text">{props.description}</p>
+                    <p className="card-text" style={{fontSize:"14px"}}>{props.description}</p>
                     <button className="btn btn-dark"><a href={props.link}>View</a></button>
                     <button className="btn btn-dark" onClick={handleDelete}>Delete</button>
-                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div> 
+        </div>
     </div>
     )
 }

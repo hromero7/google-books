@@ -6,7 +6,7 @@ const CardContainer = (props) => {
 
    return (
         
-<div className="col-md-12">
+<div className="col-lg-12">
       {
           props.books.map((book, i) => {
               return <BookCard

@@ -1,5 +1,8 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+ 
+ .App {
   text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 
@@ -7,6 +10,9 @@
   margin: 60px;
 }
 
+.fa-book {
+  font-size: 60px;
+}
 .header-title {
   font-size: 70px;
 }
@@ -22,8 +28,56 @@
   text-align: left;
 }
 
-.card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn {
+  margin: 5px;
+}
+
+.btn:hover {
+background-color: #fc5c9c;
+}
+
+a {
+  color: white;
+  
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 640px) {
+  .header h1 {
+    font-size: 40px;
+  }
+
+  .form-control {
+    width: 50%;
+  }
+
+  .fas {
+    font-size: 30px;
+  }
+  .header h3 {
+    font-size: 18px;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .form-control {
+    width: 50%;
+  }
+
+  .fas {
+    font-size: 20px;
+  }
+  .header h3 {
+    font-size: 14px;
+  }
 }

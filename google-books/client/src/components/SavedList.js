@@ -5,8 +5,8 @@ const SavedList = (props) => {
     
 
     return (
-        <div className="card mb-3" style={{width: "85%"}}>
-            <div className="row no-gutters">
+        <div className="col-lg-12">
+           
             {
                 props.books.map((book, i) => {
                     return (
@@ -23,7 +23,7 @@ const SavedList = (props) => {
                     )
                 })
             }
-            </div>
+           
         </div>
     )
 }

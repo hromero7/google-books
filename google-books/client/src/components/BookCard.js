@@ -19,7 +19,7 @@ const BookCard = (props) => {
 <div className="card mb-3" style={{width:"100%"}}>
   <div className="row no-gutters">
     <div className="col-md-4">
-      <img src={props.image} className="card-img" alt="thumbnail" style={{width:"150px", margin:"20px"}}/>
+      <img src={props.image} className="card-img" alt={props.title} style={{width:"150px", margin:"20px"}}/>
     </div>
     <div className="col-md-8">
       <div className="card-body">
