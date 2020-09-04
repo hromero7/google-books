@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors());
 
-mongoose.connect("mongodb://localhost/googlebooks", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
