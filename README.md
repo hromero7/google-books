@@ -14,10 +14,10 @@ Create an application that allows the user to search for books by title through 
 Screenshots of the completed application are below:
 
 **Main Page**
-![](./client/public/homepage.png)
+![](.google-books/client/public/homepage.png)
 
 **Searching A Book**
-![](./client/public/search.png)
+![](.google-books/client/public/search.png)
 
 **Saved Books**
 ![](./client/public/saved.png)
