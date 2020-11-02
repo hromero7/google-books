@@ -43,7 +43,7 @@ const handleClick = (e) => {
     
 }
 const setKeyword = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSearchTerm(event.target.value);
 }
 console.log(bookData);

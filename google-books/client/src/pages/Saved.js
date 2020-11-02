@@ -12,8 +12,8 @@ const [books, setBooks] = useState([]);
         })
     }, [])
 
-    console.log(books);
-    
+    // console.log(books);
+
     return (
         <div>
             <Header/>

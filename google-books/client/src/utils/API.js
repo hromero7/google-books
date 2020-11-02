@@ -6,12 +6,14 @@ export default {
       return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + searchTerm);
     },
     getSavedBooks: function() {
-        return axios.get("http://localhost:3001/books");
+        return axios.get("/books");
     },
     saveBook: function(bookData) {
-        return axios.post("http://localhost:3001/books/add", bookData);
+        return axios.post("/books/add", bookData);
     },
     deleteBook: function(id) {
-        return axios.delete("http://localhost:3001/books/" + id);
+        return axios.delete("/books/" + id);
     }
   };
+
+  

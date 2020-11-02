@@ -3,17 +3,17 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
+require("dotenv").config();
 const app = express();
 // const routes = require("./routes/api");
-
-
 // app.use(routes);
 
 app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 mongoose.connection.on("connected", () => {

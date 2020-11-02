@@ -25,7 +25,7 @@ const SavedBook = (props) => {
                     <h5 className="card-title">{props.subtitle}</h5>
                     <p className="card-text"><small className="text-muted">Written By {props.authors.join(", ")}</small></p>
                     <p className="card-text" style={{fontSize:"14px"}}>{props.description}</p>
-                    <button className="btn btn-dark"><a href={props.link}>View</a></button>
+                    <button className="btn btn-dark"><a href={props.link} target="_blank" rel="noopener noreferrer">View</a></button>
                     <button className="btn btn-dark" onClick={handleDelete}>Delete</button>
                 </div>
             </div> 

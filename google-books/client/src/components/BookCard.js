@@ -14,7 +14,7 @@ const BookCard = (props) => {
             image: props.image || "",
             link: props.link
         }
-        console.log("console log" + props.authors);
+        // console.log("console log" + props.authors);
         setIconClass({clicked: true});
         API.saveBook(bookToSave);
 
@@ -33,7 +33,7 @@ const BookCard = (props) => {
         <h5 className="card-title">{props.subtitle}</h5>
     <p className="card-text"><small className="text-muted">Written By {props.authors == null ? "N/A": props.authors.join(", ")}</small></p>
     <p className="card-text" style={{fontSize:"14px"}}>{props.description}</p>
-    <button className="btn btn-dark"><a href={props.link}>View</a></button>
+    <button className="btn btn-dark"><a href={props.link} target="_blank" rel="noopener noreferrer">View</a></button>
         <button className="btn btn-dark" onClick={handleSave} disabled={iconClass.clicked? true : false}>
           {iconClass.clicked? <i className="fas fa-check"></i> : "Save" }
         
